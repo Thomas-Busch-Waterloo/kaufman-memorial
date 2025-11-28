@@ -1,0 +1,60 @@
+name: Generate Memorial PDF
+
+on:
+  push:
+    branches: [ master, main ]
+  workflow_dispatch:
+
+jobs:
+  generate-pdf:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - name: Install system dependencies for WeasyPrint
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y libpango-1.0-0 libpangoft2-1.0-0 libharfbuzz-subset0
+
+    - name: Install Python dependencies
+      run: |
+        pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Generate PDF
+      run: python render_pdf.py
+
+    - name: Upload PDF as artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: bryan-memories-pdf
+        path: bryan-memories.pdf
+        retention-days: 90
+
+    - name: Create Release
+      if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main'
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        # Get current date for release tag
+        DATE=$(date +%Y%m%d-%H%M%S)
+        TAG="release-${DATE}"
+
+        # Create a git tag
+        git config user.name "GitHub Actions"
+        git config user.email "actions@github.com"
+        git tag -a "${TAG}" -m "Auto-generated PDF release ${DATE}"
+        git push origin "${TAG}"
+
+        # Create GitHub release with PDF
+        gh release create "${TAG}" \
+          bryan-memories.pdf \
+          --title "Memorial PDF - ${DATE}" \
+          --notes "Automatically generated memorial PDF from latest commit"
