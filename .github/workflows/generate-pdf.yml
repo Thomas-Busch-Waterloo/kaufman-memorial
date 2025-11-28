@@ -32,6 +32,9 @@ jobs:
         pip install --upgrade pip
         pip install -r requirements.txt
 
+    - name: Validate data.json
+      run: python test_data.py
+
     - name: Generate PDF
       run: python render_pdf.py
 

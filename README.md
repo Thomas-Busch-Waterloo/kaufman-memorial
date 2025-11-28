@@ -167,21 +167,28 @@ If you're comfortable with Git and GitHub:
    - Add your comment to the `comments` array
    - Follow the format shown below
 
-6. **Test your changes** (optional):
+6. **Validate your changes**:
+   ```bash
+   python test_data.py
+   ```
+   - This validates the JSON structure and ensures all required fields are present
+   - Fix any errors reported by the validator
+
+7. **Test PDF generation** (optional):
    ```bash
    pip install -r requirements.txt
    python render_pdf.py
    ```
    - Check the generated PDF to ensure your entry looks correct
 
-7. **Commit and push**:
+8. **Commit and push**:
    ```bash
    git add data.json images/profiles/
    git commit -m "Add memory from [Your Name]"
    git push origin add-my-memory
    ```
 
-8. **Create a Pull Request**:
+9. **Create a Pull Request**:
    - Go to your fork on GitHub
    - Click "Pull Request"
    - Provide a brief description
@@ -228,6 +235,41 @@ Add your entry to the `comments` array in `data.json`:
 ### Questions?
 
 If you have any questions about contributing, please [open an issue](https://github.com/Thomas-Busch-Waterloo/kaufman-memorial/issues) or reach out to the repository maintainer.
+
+## Testing
+
+### Validate data.json
+
+Before submitting changes or generating the PDF, validate your `data.json` file:
+
+```bash
+python test_data.py
+```
+
+The validator checks:
+- ✓ Valid JSON syntax
+- ✓ All required fields are present
+- ✓ Field values are properly formatted
+- ✓ All referenced image files exist
+- ✓ Height values match the pattern `"XXXpx"`
+- ✓ Background size values are valid CSS
+- ⚠ Warns about duplicate author names
+
+**Example output**:
+```
+Validating data.json...
+
+✓ JSON syntax is valid
+✓ Person object is valid
+✓ Backgrounds configuration is valid
+✓ All 13 comments are valid
+
+==================================================
+✅ All validations passed!
+==================================================
+```
+
+If validation fails, the script will show clear error messages indicating what needs to be fixed.
 
 ## Development
 
