@@ -1,0 +1,143 @@
+{
+  "person": {
+    "name": "Bryan Daniel Kaufman",
+    "subtitle": "Beloved math, physics and science teacher, props master and friend.",
+    "profile_image": "images/profiles/bryan daniel kaufman.webp",
+    "header_note": "Memories from the Eastwood Arts Alumni Facebook group.",
+    "date_range": "1947 – 2025"
+  },
+  "backgrounds": {
+    "cover": {
+      "image": "images/backgrounds/vintage theater stage - background space and moon.png",
+      "size": "cover",
+      "position": "center"
+    },
+    "pages": {
+      "image": "images/backgrounds/moon sky.png",
+      "size": "cover",
+      "position": "center"
+    },
+    "pages_list": [
+      {
+        "image": "images/backgrounds/moon sky.png",
+        "size": "cover",
+        "position": "center"
+      },
+      {
+        "image": "images/backgrounds/physics and space.png",
+        "size": "cover",
+        "position": "center"
+      },
+      {
+        "image": "images/backgrounds/drawn space.png",
+        "size": "100% 100%",
+        "position": "center"
+      },
+      {
+        "image": "images/backgrounds/moon sky.png",
+        "size": "cover",
+        "position": "center"
+      },
+      {
+        "image": "images/backgrounds/Theater Props with starry sky.png",
+        "size": "cover",
+        "position": "center"
+      },
+      {
+        "image": "images/backgrounds/moon curtains math.png",
+        "size": "cover",
+        "position": "center"
+      },
+      {
+        "image": "images/backgrounds/moon stars gears.png",
+        "size": "cover",
+        "position": "center"
+      },
+      {
+        "image": "images/backgrounds/tools stars.png",
+        "size": "cover",
+        "position": "center"
+      }
+    ]
+  },
+  "comments": [
+    {
+      "author": "Sandy Bethell",
+      "message": "Wonderful human! Musicals with Bryan were mystical. Have a problem? Need a fire onstage? Ask Bryan and he would magically manifest one-safely! Bubbling water-no problem. A glass that would break without shattering/he did it! Loved creating with Bryan. One of the beautiful and unique opportunities at Eastwood were the fun times we had collaborating and solving problems for productions. Mr. Kaufman was a genius, always with a twinkle in his eye and a knowing smirk that his wizardry would unfold seamlessly! Respect and admiration galore!",
+      "profile_image": "images/profiles/sandy bethell.jpg",
+      "height": "310px"
+    },
+    {
+      "author": "Hannah Meghan Celinski",
+      "message": "Mr. Kaufman was an incredible teacher, and a fantastic person. He was a neighbor to my mother later on, and he was very good to her. And, of course, he was always good to me. He will be greatly missed by all who knew him.",
+      "profile_image": "images/profiles/hannah megan celinski.jpg",
+      "height": "145px"
+    },
+    {
+      "author": "Shanon Margaret",
+      "message": "Oh goodness! My oldest is in high school and a few days ago I was telling her about this wonderful physics teacher I once had...I hope his family finds solace in those who so fondly remember him.",
+      "profile_image": "images/profiles/shannon margaret.jpg",
+      "height": "140px"
+    },
+    {
+      "author": "Arlene Thomas",
+      "message": "He was awesome and so kind!",
+      "profile_image": "images/profiles/arlene thomas.jpg",
+      "height": "50px"
+    },
+    {
+      "author": "Adam Schoales",
+      "message": "I never had him as a teacher (he was before my time) but got to interview him for the 50th Anniversary and he was so warm and kind and seemed like an absolutely incredible guy.",
+      "profile_image": "images/profiles/adam schoales.jpg",
+      "height": "120px"
+    },
+    {
+      "author": "Hannah Hastings-Fuhr",
+      "message": "He was so involved. I didn't take any of his classes. But he participated in so many other things, that I feel I actually knew him. What a sad loss.",
+      "profile_image": "images/profiles/hannah hastings-fuhr.jpg",
+      "height": "120px"
+    },
+    {
+      "author": "Bridget Anne Hatchwell",
+      "message": "The only teacher that caught me skipping his class once and never got me in trouble! He was a very good teacher. I actually vividly remember his business math class, teaching us about the new technology arising, the electronic wallet (we now call a debit card)!",
+      "profile_image": "images/profiles/bridget anne hatchwell.jpg",
+      "height": "165px"
+    },
+    {
+      "author": "Josh Fairbairn",
+      "message": "The absolute best physics teacher and propsmaster Eastwood ever had. I adored his classes and his props work.",
+      "profile_image": "images/profiles/josh fairbairn.jpg",
+      "height": "95px"
+    },
+    {
+      "author": "Glenn West",
+      "message": "Some 20 years ago I randomly bumped into him on the sidewalk in KW. Talked for like 20 minutes. He was a great teacher, and always took time to discuss my random questions during and after class (even years after class.)",
+      "profile_image": "images/profiles/glenn west.jpg",
+      "height": "140px"
+    },
+    {
+      "author": "Kirsty Huns-Sho",
+      "message": "Lovely guy. He wasn't working for very long after I started, but he was definitely lovely.",
+      "profile_image": "images/profiles/kristy huns-sho.png",
+      "height": "70px"
+    },
+    {
+      "author": "Katia Grubisic",
+      "message": "Oh, no. My condolences to his family.",
+      "profile_image": "images/profiles/katia grubisic.jpg",
+      "height": "50px"
+    },
+    {
+      "author": "Steve Spence",
+      "message": "Wow. He was my grade 10 math teacher, and then was a faculty friend of mine.",
+      "profile_image": "images/profiles/steve spence.jpg",
+      "height": "70px"
+    },
+    {
+      "author": "Robyn Hesch Wilk",
+      "message": "Very sad to hear. Mr. Kaufman was the best!! Condolences to his family. By far my favourite teacher ever.",
+      "profile_image": "images/profiles/robyn hesch wilk.jpg",
+      "height": "95px"
+    }
+  ]
+}

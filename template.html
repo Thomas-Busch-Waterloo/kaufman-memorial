@@ -1,0 +1,246 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    @page {
+      size: A5;
+      margin: 0;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #000;
+      font-family: "Georgia", "Times New Roman", serif;
+      color: #ffffff;
+    }
+
+    .page {
+      position: relative;
+      box-sizing: border-box;
+      width: 148mm;
+      height: 210mm;
+      padding: 50px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .page-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 0;
+      filter: brightness(1.55) contrast(1.15) saturate(1.25);
+      background-repeat: no-repeat;
+    }
+
+    .page > :not(.page-background) {
+      position: relative;
+      z-index: 1;
+    }
+
+    .page.cover {
+      justify-content: center;
+      gap: 26px;
+      padding: 56px 52px 44px 52px;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .profile-wrapper {
+      margin-bottom: 15px;
+    }
+
+    .profile-wrapper img {
+      width: 110px;
+      height: 110px;
+      border-radius: 55px;
+      object-fit: cover;
+      border: 3px solid rgba(255,255,255,0.9);
+    }
+
+    h1 {
+      font-size: 1.9rem;
+      margin: 10px 0 5px 0;
+      letter-spacing: 0.06em;
+    }
+
+    .subtitle {
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+
+    .header-note {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      opacity: 0.85;
+    }
+
+    .comments-panel {
+      background-color: rgba(5, 5, 20, 0.63);
+      border-radius: 26px;
+      padding: 38px 48px;
+      width: 85%;
+      max-width: 780px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      overflow: visible;
+    }
+
+    .comments-wrapper {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      overflow: visible;
+    }
+
+    .page .header,
+    .page .footer {
+      width: 100%;
+    }
+
+    .comment {
+      margin-bottom: 18px;
+      padding: 12px 14px 14px 14px;
+      border-radius: 10px;
+      background-color: rgba(255,255,255,0.03);
+      border-bottom: none;
+      page-break-inside: avoid;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      align-self: center;
+      width: 100%;
+    }
+
+    .comment + .comment {
+      margin-top: 10px;
+    }
+
+    .comment-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid rgba(255,255,255,0.45);
+      background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: rgba(255,255,255,0.8);
+    }
+
+    .comment-body {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      width: 100%;
+    }
+
+    .comment-author {
+      font-weight: bold;
+      font-size: 1rem;
+      margin-bottom: 4px;
+    }
+
+    .comment-text {
+      font-size: 0.98rem;
+      line-height: 1.5;
+      white-space: pre-line;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+    .footer {
+      font-size: 0.8rem;
+      text-align: right;
+      opacity: 0.7;
+    }
+
+    .page-break {
+      page-break-after: always;
+      break-after: page;
+    }
+
+    .page.cover .comment-text {
+      text-align: center;
+      white-space: normal;
+    }
+  </style>
+</head>
+<body>
+
+  {# Cover page #}
+  <div class="page page-break cover">
+    <div class="page-background" style="background-image: radial-gradient(circle at top, rgba(0,0,0,0.12), rgba(0,0,0,0.32)), url('{{ background_cover.image }}'); background-size: {{ background_cover.size }}; background-position: {{ background_cover.position }};"></div>
+    <div class="header">
+      <div class="profile-wrapper">
+        <img src="{{ person.profile_image }}" alt="{{ person.name }}">
+      </div>
+      <h1>{{ person.name }}</h1>
+      <div class="subtitle">{{ person.subtitle }}</div>
+      <div class="header-note">{{ person.date_range }}</div>
+      <div class="header-note" style="font-style: italic; opacity: 0.75;">
+        {{ person.header_note }}
+      </div>
+    </div>
+
+    <div class="comments-wrapper">
+      <div class="comments-panel">
+        <div class="comment-text">This booklet gathers messages, stories and memories shared for Bryan by former students, colleagues and friends. These pages are a small reflection of his kindness, curiosity and love of science and theatre.</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      Created for his partner and family, from the Eastwood Arts community.
+    </div>
+  </div>
+
+  {# Comment pages #}
+  {% for page in pages %}
+    {% set page_number = loop.index + 1 %}
+    {% set bg_page = background_pages_list[loop.index0] if background_pages_list|length > loop.index0 else background_pages %}
+    <div class="page"{% if not loop.last %} style="page-break-after: always;"{% endif %}>
+      <div class="page-background" style="background-image: radial-gradient(circle at top, rgba(0,0,0,0.12), rgba(0,0,0,0.32)), url('{{ bg_page.image }}'); background-size: {{ bg_page.size }}; background-position: {{ bg_page.position }};"></div>
+      <div class="header">
+        <h1>{{ person.name }}</h1>
+        <div class="subtitle">Memories from friends, students and colleagues</div>
+      </div>
+
+      <div class="comments-wrapper">
+        <div class="comments-panel">
+          {% for c in page %}
+            <div class="comment"{% if c.height %} style="min-height: {{ c.height }};"{% endif %}>
+              {% if c.profile_image %}
+                <img class="comment-avatar" src="{{ c.profile_image }}" alt="{{ c.author }}">
+              {% else %}
+                <div class="comment-avatar">{{ c.author[:1] }}</div>
+              {% endif %}
+              <div class="comment-body">
+                <div class="comment-author">{{ c.author }}</div>
+                <div class="comment-text">{{ c.message }}</div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="footer">
+        Eastwood Arts Alumni · page {{ page_number }}
+      </div>
+    </div>
+  {% endfor %}
+
+</body>
+</html>
